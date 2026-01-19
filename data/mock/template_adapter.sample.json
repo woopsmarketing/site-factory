@@ -1,0 +1,62 @@
+{
+  "template_id": "t1",
+  "pages": [
+    {
+      "post_slug": "home",
+      "patches": [
+        {
+          "key": "pages.home.hero.h1",
+          "element_id": "hero_heading",
+          "path": "settings.title",
+          "op": "set_text"
+        },
+        {
+          "key": "pages.home.hero.sub",
+          "element_id": "hero_heading",
+          "path": "settings.description",
+          "op": "set_text"
+        },
+        {
+          "key": "pages.home.hero.cta_text",
+          "element_id": "hero_heading",
+          "path": "settings.button_text",
+          "op": "set_text"
+        },
+        {
+          "key": "pages.home.hero.cta_url",
+          "element_id": "hero_heading",
+          "path": "settings.button_url",
+          "op": "set_url"
+        },
+        {
+          "key": "pages.home.hero.image_alt",
+          "element_id": "hero_image",
+          "path": "settings.alt",
+          "op": "set_text"
+        },
+        {
+          "key": "pages.home.hero.image_alt",
+          "element_id": "promo_section",
+          "path": "settings.alt",
+          "op": "delete"
+        },
+        {
+          "key": "brand.contact.email",
+          "element_id": "footer_contact",
+          "path": "settings.text",
+          "op": "set_text"
+        }
+      ]
+    }
+  ],
+  "globals": {
+    "colors": {
+      "primary": "design.colors.primary",
+      "secondary": "design.colors.secondary"
+    },
+    "fonts": {
+      "heading": "design.fonts.heading",
+      "body": "design.fonts.body"
+    }
+  }
+}

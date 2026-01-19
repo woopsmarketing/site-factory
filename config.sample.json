@@ -1,0 +1,20 @@
+{
+  "project": {
+    "name": "wordpress-site-factory",
+    "default_language": "ko"
+  },
+  "paths": {
+    "data_dir": "data",
+    "output_dir": "output"
+  },
+  "wordpress": {
+    "wp_cli_path": "wp",
+    "site_root_base": "/var/www/wp-sites",
+    "db_host": "127.0.0.1",
+    "db_port": 3306
+  },
+  "migration": {
+    "tool": "wp-migrate",
+    "notes": "WP Migrate를 통한 템플릿 복제를 가정"
+  }
+}

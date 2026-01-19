@@ -1,0 +1,33 @@
+{
+  "elements": [
+    {
+      "id": "hero_heading",
+      "settings": {
+        "title": "기존 제목",
+        "description": "기존 서브 텍스트",
+        "button_text": "기존 CTA",
+        "button_url": "#"
+      }
+    },
+    {
+      "id": "hero_image",
+      "settings": {
+        "image_url": "https://example.com/old-hero.jpg",
+        "alt": "기존 이미지 대체텍스트"
+      }
+    },
+    {
+      "id": "promo_section",
+      "settings": {
+        "title": "기존 프로모션",
+        "alt": "기존 프로모션 이미지"
+      }
+    },
+    {
+      "id": "footer_contact",
+      "settings": {
+        "text": "old-contact@example.com"
+      }
+    }
+  ]
+}

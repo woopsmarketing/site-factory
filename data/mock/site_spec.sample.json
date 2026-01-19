@@ -1,0 +1,78 @@
+{
+  "brand": {
+    "name": "노바테크",
+    "tagline": "AI 기반 웹 자동화",
+    "tone": "professional",
+    "logo_prompt": "미니멀하고 신뢰감 있는 AI 기업 로고",
+    "contact": {
+      "email": "contact@novatech.example",
+      "phone": "+82-2-1234-5678",
+      "address": "서울특별시 중구 세종대로 110"
+    }
+  },
+  "design": {
+    "colors": {
+      "primary": "#3B82F6",
+      "secondary": "#10B981",
+      "accent": "#F59E0B",
+      "background": "#FFFFFF",
+      "text": "#111827"
+    },
+    "fonts": {
+      "heading": "Pretendard",
+      "body": "Noto Sans KR"
+    },
+    "icon_style": "line",
+    "image_style": "clean_minimal"
+  },
+  "pages": {
+    "home": {
+      "hero": {
+        "h1": "템플릿 기반 AI 웹사이트 자동 완성",
+        "sub": "브랜드와 디자인 토큰을 입력하면 사이트가 자동으로 완성됩니다.",
+        "cta_text": "데모 요청하기",
+        "cta_url": "https://novatech.example/contact",
+        "image_alt": "자동화된 웹사이트 미리보기"
+      }
+    },
+    "about": {
+      "title": "우리는 자동화에 집중합니다",
+      "summary": "프로세스 전 과정을 표준화하여 빠르고 안정적으로 구축합니다."
+    }
+  },
+  "seo": {
+    "home": {
+      "title": "AI 웹사이트 자동 생성 솔루션 | 노바테크",
+      "description": "템플릿 + LLM 기반으로 워드프레스 사이트를 자동 완성합니다.",
+      "og_title": "노바테크 - AI 웹사이트 자동화",
+      "og_description": "브랜드 입력만으로 웹사이트가 완성되는 자동화 솔루션",
+      "og_image_prompt": "미래지향적 웹사이트 자동화 대시보드 이미지"
+    },
+    "organization": {
+      "name": "노바테크",
+      "url": "https://novatech.example",
+      "logo": "https://novatech.example/assets/logo.png",
+      "sameAs": [
+        "https://twitter.com/novatech",
+        "https://www.linkedin.com/company/novatech"
+      ]
+    }
+  },
+  "faq": [
+    {
+      "q": "최소 입력값은 무엇인가요?",
+      "a": "도메인, 템플릿, 언어, 주제만으로 기본 사이트가 생성됩니다."
+    }
+  ],
+  "menu": [
+    {
+      "label": "홈",
+      "slug": "home"
+    },
+    {
+      "label": "소개",
+      "slug": "about"
+    }
+  ],
+  "categories": ["Automation", "AI", "SaaS"]
+}
