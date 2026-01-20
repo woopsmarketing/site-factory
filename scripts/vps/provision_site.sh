@@ -43,12 +43,9 @@ sanitize_identifier() {
 }
 
 generate_password() {
-  # 랜덤 비밀번호를 생성한다.
-  if command -v openssl >/dev/null 2>&1; then
-    openssl rand -base64 18 | tr -d '\n' | tr '+/' '-_'
-    return
-  fi
-  head -c 24 /dev/urandom | base64 | tr -d '\n' | tr '+/' '-_'
+  # 고정 비밀번호를 반환한다 (개발/테스트용).
+  # 운영 환경에서는 랜덤 비밀번호 사용을 권장한다.
+  echo "lqp1o2k3!"
 }
 
 detect_php_socket() {
@@ -240,9 +237,18 @@ ln -s "${NGINX_CONF}" "/etc/nginx/sites-enabled/${DOMAIN}" 2>/dev/null || true
 nginx -t
 systemctl reload nginx
 
+print_info "SSL 인증서를 발급합니다 (Let's Encrypt)."
+if command -v certbot >/dev/null 2>&1; then
+  certbot --nginx -d "${DOMAIN}" --non-interactive --agree-tos --email "${ADMIN_EMAIL}" --redirect || {
+    print_error "SSL 발급 실패. DNS가 정상적으로 연결되었는지 확인해주세요."
+  }
+else
+  print_error "certbot이 설치되어 있지 않습니다. 'sudo apt install -y certbot python3-certbot-nginx'로 설치해주세요."
+fi
+
 print_info "프로비저닝이 완료되었습니다."
-echo "도메인: ${DOMAIN}"
-echo "WP 관리자: http://${DOMAIN}/wp-admin"
+echo "도메인: https://${DOMAIN}"
+echo "WP 관리자: https://${DOMAIN}/wp-admin"
 echo "DB 이름: ${DB_NAME}"
 echo "DB 사용자: ${DB_USER}"
 echo "DB 비밀번호: ${DB_PASS}"

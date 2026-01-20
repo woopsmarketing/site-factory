@@ -55,7 +55,9 @@ install_packages() {
     php-curl \
     php-gd \
     php-mbstring \
-    php-zip
+    php-zip \
+    certbot \
+    python3-certbot-nginx
 }
 
 install_wp_cli() {
