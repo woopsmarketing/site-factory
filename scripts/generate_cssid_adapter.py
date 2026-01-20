@@ -44,11 +44,15 @@ def extract_css_ids(elementor_data, parent_path=""):
                 'text-editor': 'set_html',
                 'button': 'set_text',
                 'image': 'set_image',
-                'icon-list': 'set_text',
-                'highlighted-text': 'set_text',
+                'icon-list': 'set_icon_list',
+                'highlighted-text': 'set_highlighted_text',
                 'uicore-counter': 'set_counter',
                 'uicore-icon-box': 'set_iconbox',
             }
+
+            # 한글: 컨테이너는 직접 주입 대상이 아니므로 제외한다.
+            if widget_type == 'container':
+                continue
             
             css_id_map.append({
                 'css_id': css_id,

@@ -1,4 +1,4 @@
-# v0.2 - 중첩 요소/ CSS ID 대응 추가 (2026-01-19)
+# v0.3 - 복합 위젯 op 처리/ CSS ID 매칭 개선 (2026-01-20)
 # 기능: adapter patch를 Elementor JSON에 적용 (예: apply_patches_to_elementor(data, adapter, site_spec))
 
 from copy import deepcopy
@@ -81,7 +81,14 @@ def _apply_single_patch(
             "patch": patch,
         }
 
-    success = set_nested_value(element, target_path, value, strict=strict_path)
+    # 한글: op별로 처리 방식이 다를 수 있어 분기한다.
+    success = _apply_patch_value(
+        element=element,
+        target_path=target_path,
+        value=value,
+        op=op,
+        strict_path=strict_path,
+    )
     if not success:
         return {
             "status": "error",
@@ -94,6 +101,40 @@ def _apply_single_patch(
         "message": "패치가 적용되었습니다.",
         "patch": patch,
     }
+
+
+def _apply_patch_value(
+    *,
+    element: Dict[str, Any],
+    target_path: str,
+    value: Any,
+    op: str,
+    strict_path: bool,
+) -> bool:
+    """op별로 값을 적용한다. 예: _apply_patch_value(element, "settings.title", "텍스트", "set_text", True)"""
+
+    # 한글: 기본 텍스트/HTML/이미지 경로는 그대로 세팅한다.
+    if op in {"set_text", "set_html", "set_image"}:
+        return set_nested_value(element, target_path, value, strict=strict_path)
+
+    # 한글: 강조 텍스트는 리스트 구조를 유지해야 한다.
+    if op == "set_highlighted_text":
+        return _set_highlighted_text(element, value, strict_path)
+
+    # 한글: 아이콘 리스트는 배열 구조를 유지해야 한다.
+    if op == "set_icon_list":
+        return _set_icon_list(element, value, strict_path)
+
+    # 한글: UiCore Counter는 number/suffix/title만 부분 업데이트한다.
+    if op == "set_counter":
+        return _set_counter(element, value, strict_path)
+
+    # 한글: UiCore Icon Box는 기존 settings를 유지하며 필요한 필드만 업데이트한다.
+    if op == "set_iconbox":
+        return _set_icon_box(element, value, strict_path)
+
+    # 한글: 기본 처리 (경로 그대로 세팅)
+    return set_nested_value(element, target_path, value, strict=strict_path)
 
 
 def _find_element(
@@ -149,7 +190,8 @@ def _matches_css_id(settings: Any, css_id: str) -> bool:
     if not isinstance(settings, dict):
         return False
 
-    for key in ("_css_id", "css_id", "cssId", "cssid"):
+    # 한글: Elementor는 _element_id로 저장하는 경우가 많다.
+    for key in ("_element_id", "_css_id", "css_id", "cssId", "cssid"):
         value = settings.get(key)
         if isinstance(value, str) and value.strip() == css_id:
             return True
@@ -168,3 +210,115 @@ def _remove_element_by_index(
 
     if 0 <= element_index < len(elements_parent):
         elements_parent.pop(element_index)
+
+
+def _set_highlighted_text(element: Dict[str, Any], value: Any, strict_path: bool) -> bool:
+    """강조 텍스트 위젯에 안전하게 값 적용. 예: _set_highlighted_text(el, "문장", True)"""
+
+    settings = element.get("settings")
+    if not isinstance(settings, dict):
+        return False
+
+    content = settings.get("content")
+    if not isinstance(content, list) or not content:
+        # 한글: 구조가 다르면 기본 경로에 바로 세팅 시도
+        return set_nested_value(element, "settings.content", value, strict=strict_path)
+
+    # 한글: 문자열이면 첫 번째 텍스트만 교체한다.
+    if isinstance(value, str):
+        if isinstance(content[0], dict):
+            content[0]["text"] = value
+            return True
+        return False
+
+    # 한글: 리스트면 순서대로 채운다.
+    if isinstance(value, list):
+        for idx, text in enumerate(value):
+            if idx >= len(content):
+                break
+            if isinstance(content[idx], dict):
+                content[idx]["text"] = text
+        return True
+
+    return False
+
+
+def _set_icon_list(element: Dict[str, Any], value: Any, strict_path: bool) -> bool:
+    """아이콘 리스트 위젯에 안전하게 값 적용. 예: _set_icon_list(el, ["a","b"], True)"""
+
+    settings = element.get("settings")
+    if not isinstance(settings, dict):
+        return False
+
+    icon_list = settings.get("icon_list")
+    if not isinstance(icon_list, list) or not icon_list:
+        return set_nested_value(element, "settings.icon_list", value, strict=strict_path)
+
+    if isinstance(value, str):
+        if isinstance(icon_list[0], dict):
+            icon_list[0]["text"] = value
+            return True
+        return False
+
+    if isinstance(value, list):
+        for idx, text in enumerate(value):
+            if idx >= len(icon_list):
+                break
+            if isinstance(icon_list[idx], dict):
+                icon_list[idx]["text"] = text
+        return True
+
+    return False
+
+
+def _set_counter(element: Dict[str, Any], value: Any, strict_path: bool) -> bool:
+    """카운터 위젯에 안전하게 값 적용. 예: _set_counter(el, {"number":"10","suffix":"%","title":"만족도"}, True)"""
+
+    settings = element.get("settings")
+    if not isinstance(settings, dict):
+        return False
+
+    if isinstance(value, dict):
+        # 한글: 기존 설정을 보존하며 필요한 필드만 갱신
+        for key in ("number", "suffix", "title"):
+            if key in value:
+                settings[key] = value[key]
+        return True
+
+    # 한글: 문자열이면 number로만 처리
+    if isinstance(value, str):
+        settings["number"] = value
+        return True
+
+    return False
+
+
+def _set_icon_box(element: Dict[str, Any], value: Any, strict_path: bool) -> bool:
+    """아이콘 박스 위젯에 안전하게 값 적용. 예: _set_icon_box(el, {...}, True)"""
+
+    settings = element.get("settings")
+    if not isinstance(settings, dict):
+        return False
+
+    if not isinstance(value, dict):
+        # 한글: 비정상 값은 그대로 세팅 시도
+        return set_nested_value(element, "settings", value, strict=strict_path)
+
+    # 한글: 텍스트 계열
+    for key in ("title", "subtitle", "description"):
+        if key in value:
+            settings[key] = value[key]
+
+    # 한글: 링크/버튼 텍스트가 있는 경우
+    if "button_text" in value:
+        settings["button_text"] = value["button_text"]
+    if "button_url" in value:
+        settings["button_url"] = value["button_url"]
+
+    # 한글: 아이콘은 문자열 URL 또는 객체 형태를 지원
+    if "icon" in value:
+        settings["icon"] = value["icon"]
+    if "image" in value:
+        settings["image"] = value["image"]
+
+    return True
