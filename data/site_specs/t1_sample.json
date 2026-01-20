@@ -1,0 +1,23 @@
+{
+  "domain": "test.zerotheme.co.kr",
+  "template_id": "t1",
+  "language": "ko",
+  "brand": {
+    "name": "테스트 서비스",
+    "tagline": "당신의 성공을 위한 파트너"
+  },
+  "content": {
+    "hero_title_1": "간편하고 빠른 솔루션",
+    "hero_title_2": "95% 완성형 플랫폼",
+    "hero_description": "<p>전문가가 만든 플랫폼에 여러분의 아이디어를</p><p>더하면 바로 시작할 수 있습니다!</p><p>개발 비용과 시간을 대폭 줄여서</p><p>비즈니스에 집중하세요.</p>",
+    "cta_primary": "무료 체험",
+    "cta_secondary": "데모 보기",
+    "feature_text": "원하는 템플릿을 선택하기만 하면 완성",
+    "section_title": "비즈니스 성장 가속화"
+  },
+  "images": {
+    "hero_1": "https://example.com/hero-1.jpg",
+    "hero_2": "https://example.com/hero-2.jpg",
+    "hero_3": "https://example.com/hero-3.jpg"
+  }
+}

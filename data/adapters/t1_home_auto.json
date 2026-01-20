@@ -1,0 +1,283 @@
+{
+  "template_id": "t1",
+  "pages": [
+    {
+      "post_slug": "home",
+      "patches": [
+        {
+          "key": "hero_title_btn",
+          "element_id": "5b1234b",
+          "path": "settings.text",
+          "op": "set_text",
+          "widget_type": "button"
+        },
+        {
+          "key": "hero_title",
+          "element_id": "c3fee91",
+          "path": "settings.content",
+          "op": "set_text",
+          "widget_type": "highlighted-text"
+        },
+        {
+          "key": "hero_desc",
+          "element_id": "d3e352b",
+          "path": "settings.editor",
+          "op": "set_html",
+          "widget_type": "text-editor"
+        },
+        {
+          "key": "hero_btn_primary",
+          "element_id": "30de02c",
+          "path": "settings.text",
+          "op": "set_text",
+          "widget_type": "button"
+        },
+        {
+          "key": "hero_btn_secondary",
+          "element_id": "97dd4a4",
+          "path": "settings.text",
+          "op": "set_text",
+          "widget_type": "button"
+        },
+        {
+          "key": "hero_badge",
+          "element_id": "8d79215",
+          "path": "settings.icon_list",
+          "op": "set_text",
+          "widget_type": "icon-list"
+        },
+        {
+          "key": "stats_title",
+          "element_id": "39894f0",
+          "path": "settings.title",
+          "op": "set_text",
+          "widget_type": "heading"
+        },
+        {
+          "key": "stats_subtitle",
+          "element_id": "a947131",
+          "path": "settings.editor",
+          "op": "set_html",
+          "widget_type": "text-editor"
+        },
+        {
+          "key": "stats_btn",
+          "element_id": "1407ca5",
+          "path": "settings.text",
+          "op": "set_text",
+          "widget_type": "button"
+        },
+        {
+          "key": "stats_item_1",
+          "element_id": "9110825",
+          "path": "settings",
+          "op": "set_counter",
+          "widget_type": "uicore-counter"
+        },
+        {
+          "key": "stats_item_2",
+          "element_id": "31d2225",
+          "path": "settings",
+          "op": "set_counter",
+          "widget_type": "uicore-counter"
+        },
+        {
+          "key": "stats_item_3",
+          "element_id": "07b274a",
+          "path": "settings",
+          "op": "set_counter",
+          "widget_type": "uicore-counter"
+        },
+        {
+          "key": "features_title",
+          "element_id": "e3abb24",
+          "path": "settings.title",
+          "op": "set_text",
+          "widget_type": "heading"
+        },
+        {
+          "key": "features_desc",
+          "element_id": "96ceae1",
+          "path": "settings.editor",
+          "op": "set_html",
+          "widget_type": "text-editor"
+        },
+        {
+          "key": "features_card_1",
+          "element_id": "e5b7e11",
+          "path": "settings",
+          "op": "set_iconbox",
+          "widget_type": "uicore-icon-box"
+        },
+        {
+          "key": "features_card_2",
+          "element_id": "aaea02a",
+          "path": "settings",
+          "op": "set_iconbox",
+          "widget_type": "uicore-icon-box"
+        },
+        {
+          "key": "features_card_3",
+          "element_id": "fd2c598",
+          "path": "settings",
+          "op": "set_iconbox",
+          "widget_type": "uicore-icon-box"
+        },
+        {
+          "key": "features_card_4",
+          "element_id": "5589003",
+          "path": "settings",
+          "op": "set_iconbox",
+          "widget_type": "uicore-icon-box"
+        },
+        {
+          "key": "features_card_5",
+          "element_id": "950a32c",
+          "path": "settings",
+          "op": "set_iconbox",
+          "widget_type": "uicore-icon-box"
+        },
+        {
+          "key": "pricing_title",
+          "element_id": "8ace8d7",
+          "path": "settings.title",
+          "op": "set_text",
+          "widget_type": "heading"
+        },
+        {
+          "key": "pricing_desc",
+          "element_id": "9770faa",
+          "path": "settings.editor",
+          "op": "set_html",
+          "widget_type": "text-editor"
+        },
+        {
+          "key": "pricing_card_1_desc",
+          "element_id": "2d3718f",
+          "path": "settings",
+          "op": "set_text",
+          "widget_type": "container"
+        },
+        {
+          "key": "pricing_card_1",
+          "element_id": "83a3223",
+          "path": "settings",
+          "op": "set_text",
+          "widget_type": "container"
+        },
+        {
+          "key": "pricing_card_2_desc",
+          "element_id": "3062936",
+          "path": "settings",
+          "op": "set_text",
+          "widget_type": "container"
+        },
+        {
+          "key": "pricing_card_2",
+          "element_id": "63d8f85",
+          "path": "settings",
+          "op": "set_text",
+          "widget_type": "container"
+        },
+        {
+          "key": "pricing_card_3_desc",
+          "element_id": "0cb69cb",
+          "path": "settings",
+          "op": "set_text",
+          "widget_type": "container"
+        },
+        {
+          "key": "pricing_card_3",
+          "element_id": "585018c",
+          "path": "settings",
+          "op": "set_text",
+          "widget_type": "container"
+        },
+        {
+          "key": "pricing_icon_list",
+          "element_id": "d2b6a13",
+          "path": "settings.icon_list",
+          "op": "set_text",
+          "widget_type": "icon-list"
+        },
+        {
+          "key": "testimonial_title",
+          "element_id": "1afe1b9",
+          "path": "settings.title",
+          "op": "set_text",
+          "widget_type": "heading"
+        },
+        {
+          "key": "testimonial_subtitle",
+          "element_id": "cefbd46",
+          "path": "settings.editor",
+          "op": "set_html",
+          "widget_type": "text-editor"
+        },
+        {
+          "key": "testimonial_card_1",
+          "element_id": "ed75837",
+          "path": "settings",
+          "op": "set_text",
+          "widget_type": "container"
+        },
+        {
+          "key": "testimonial_card_2",
+          "element_id": "93b6100",
+          "path": "settings",
+          "op": "set_text",
+          "widget_type": "container"
+        },
+        {
+          "key": "cta_title",
+          "element_id": "4c4c4ef",
+          "path": "settings.title",
+          "op": "set_text",
+          "widget_type": "heading"
+        },
+        {
+          "key": "cta_subtitle",
+          "element_id": "01fcfad",
+          "path": "settings.editor",
+          "op": "set_html",
+          "widget_type": "text-editor"
+        },
+        {
+          "key": "cta_btn_primary",
+          "element_id": "1c42a7d",
+          "path": "settings.text",
+          "op": "set_text",
+          "widget_type": "button"
+        },
+        {
+          "key": "cta_desc",
+          "element_id": "664c680",
+          "path": "settings.icon_list",
+          "op": "set_text",
+          "widget_type": "icon-list"
+        },
+        {
+          "key": "cta_img_1",
+          "element_id": "d061956",
+          "path": "settings.image.url",
+          "op": "set_image",
+          "widget_type": "image"
+        },
+        {
+          "key": "cta_img_2",
+          "element_id": "5b2c836",
+          "path": "settings.image.url",
+          "op": "set_image",
+          "widget_type": "image"
+        },
+        {
+          "key": "cta_img_3",
+          "element_id": "dc39a0a",
+          "path": "settings.image.url",
+          "op": "set_image",
+          "widget_type": "image"
+        }
+      ]
+    }
+  ]
+}

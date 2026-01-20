@@ -1,0 +1,80 @@
+{
+  "template_id": "t1",
+  "pages": [
+    {
+      "post_slug": "home",
+      "patches": [
+        {
+          "key": "content.hero_title_1",
+          "element_id": "c3fee91",
+          "path": "settings.content.0.text",
+          "op": "set_text",
+          "comment": "Hero 제목 첫 줄"
+        },
+        {
+          "key": "content.hero_title_2",
+          "element_id": "c3fee91",
+          "path": "settings.content.1.text",
+          "op": "set_text",
+          "comment": "Hero 제목 두 번째 줄 (강조)"
+        },
+        {
+          "key": "content.hero_description",
+          "element_id": "d3e352b",
+          "path": "settings.editor",
+          "op": "set_html",
+          "comment": "Hero 설명문"
+        },
+        {
+          "key": "content.cta_primary",
+          "element_id": "30de02c",
+          "path": "settings.text",
+          "op": "set_text",
+          "comment": "주요 CTA 버튼"
+        },
+        {
+          "key": "content.cta_secondary",
+          "element_id": "97dd4a4",
+          "path": "settings.text",
+          "op": "set_text",
+          "comment": "보조 CTA 버튼"
+        },
+        {
+          "key": "content.feature_text",
+          "element_id": "8d79215",
+          "path": "settings.icon_list.0.text",
+          "op": "set_text",
+          "comment": "Feature 설명"
+        },
+        {
+          "key": "content.section_title",
+          "element_id": "39894f0",
+          "path": "settings.title",
+          "op": "set_text",
+          "comment": "섹션 제목"
+        },
+        {
+          "key": "images.hero_1",
+          "element_id": "3192217",
+          "path": "settings.image.url",
+          "op": "set_image",
+          "comment": "Hero 이미지 1"
+        },
+        {
+          "key": "images.hero_2",
+          "element_id": "39bef99",
+          "path": "settings.image.url",
+          "op": "set_image",
+          "comment": "Hero 이미지 2"
+        },
+        {
+          "key": "images.hero_3",
+          "element_id": "2f552da",
+          "path": "settings.image.url",
+          "op": "set_image",
+          "comment": "Hero 이미지 3"
+        }
+      ]
+    }
+  ]
+}
