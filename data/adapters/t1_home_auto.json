@@ -15,7 +15,7 @@
           "key": "hero_title",
           "element_id": "c3fee91",
           "path": "settings.content",
-          "op": "set_text",
+          "op": "set_highlighted_text",
           "widget_type": "highlighted-text"
         },
         {
@@ -43,7 +43,7 @@
           "key": "hero_badge",
           "element_id": "8d79215",
           "path": "settings.icon_list",
-          "op": "set_text",
+          "op": "set_icon_list",
           "widget_type": "icon-list"
         },
         {
@@ -152,52 +152,10 @@
           "widget_type": "text-editor"
         },
         {
-          "key": "pricing_card_1_desc",
-          "element_id": "2d3718f",
-          "path": "settings",
-          "op": "set_text",
-          "widget_type": "container"
-        },
-        {
-          "key": "pricing_card_1",
-          "element_id": "83a3223",
-          "path": "settings",
-          "op": "set_text",
-          "widget_type": "container"
-        },
-        {
-          "key": "pricing_card_2_desc",
-          "element_id": "3062936",
-          "path": "settings",
-          "op": "set_text",
-          "widget_type": "container"
-        },
-        {
-          "key": "pricing_card_2",
-          "element_id": "63d8f85",
-          "path": "settings",
-          "op": "set_text",
-          "widget_type": "container"
-        },
-        {
-          "key": "pricing_card_3_desc",
-          "element_id": "0cb69cb",
-          "path": "settings",
-          "op": "set_text",
-          "widget_type": "container"
-        },
-        {
-          "key": "pricing_card_3",
-          "element_id": "585018c",
-          "path": "settings",
-          "op": "set_text",
-          "widget_type": "container"
-        },
-        {
           "key": "pricing_icon_list",
           "element_id": "d2b6a13",
           "path": "settings.icon_list",
-          "op": "set_text",
+          "op": "set_icon_list",
           "widget_type": "icon-list"
         },
         {
@@ -213,20 +171,6 @@
           "path": "settings.editor",
           "op": "set_html",
           "widget_type": "text-editor"
-        },
-        {
-          "key": "testimonial_card_1",
-          "element_id": "ed75837",
-          "path": "settings",
-          "op": "set_text",
-          "widget_type": "container"
-        },
-        {
-          "key": "testimonial_card_2",
-          "element_id": "93b6100",
-          "path": "settings",
-          "op": "set_text",
-          "widget_type": "container"
         },
         {
           "key": "cta_title",
@@ -253,7 +197,7 @@
           "key": "cta_desc",
           "element_id": "664c680",
           "path": "settings.icon_list",
-          "op": "set_text",
+          "op": "set_icon_list",
           "widget_type": "icon-list"
         },
         {
